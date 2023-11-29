@@ -90,7 +90,7 @@ Clear all cookies
 ### getCookies(...)
 
 ```typescript
-getCookies(options: GetCookieOptions) => Promise<{ cookies: Record<string, string>; }>
+getCookies(options: GetCookieOptions) => Promise<Record<string, string>>
 ```
 
 Get cookies for a specific URL.
@@ -99,7 +99,7 @@ Get cookies for a specific URL.
 | ------------- | ------------------------------------------------------------- | -------------------------------------------------- |
 | **`options`** | <code><a href="#getcookieoptions">GetCookieOptions</a></code> | The options, including the URL to get cookies for. |
 
-**Returns:** <code>Promise&lt;{ cookies: <a href="#record">Record</a>&lt;string, string&gt;; }&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#record">Record</a>&lt;string, string&gt;&gt;</code>
 
 --------------------
 
