@@ -60,13 +60,14 @@ public class InAppBrowserPlugin: CAPPlugin {
         let hostName = url.host ?? ""
 
         dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            let domainRecords = records.filter { record in
-                record.domains.contains(hostName)
+            records.forEach { record in
+                if record.displayName.contains(hostName) {
+                    dataStore.removeData(ofTypes: record.dataTypes, for: [record]) {
+                        print("Cookies for \(hostName) cleared")
+                    }
+                }
             }
-
-            dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: domainRecords) {
-                call.resolve();
-            }
+            call.resolve();
         }
     }
 
